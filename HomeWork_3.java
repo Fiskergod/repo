@@ -7,7 +7,6 @@ public class MainApp {
 
     public static void main(String[] args) {
 
-
         /* Task 1: Написать программу, которая загадывает случайное число от 0 до 9 и пользователю дается 3 попытки
                угадать это число. При каждой попытке компьютер должен сообщить, больше ли указанное пользователем число,
                чем загаданное, или меньше. После победы или проигрыша выводится запрос – «Повторить игру еще раз?
@@ -22,21 +21,17 @@ public class MainApp {
         while (try3 < 3) {
             System.out.print("Введите число от 0 до 9: ");
             int someNumber = input.nextInt(); // пользователь вводит число
-
             if (someNumber < random) {
                 System.out.println("Вы ввели слишком маленькое число. Попробуйте еще раз: ");
                 System.out.println("");
-
             } else if (someNumber > random) {
                 System.out.println("Вы ввели слишком большое число. Попробуйте еще раз: ");
                 System.out.println("");
-
             } else if (someNumber == random) {
                 System.out.println("Вы угадали!");
                 System.out.println("");
             }
             try3++; // подсчет попыток
-
         }
 
         System.out.print("Вы использовали все попытки. Хотите начать заново? Да - 1; Нет - 0: "); // даем возможность
@@ -44,7 +39,6 @@ public class MainApp {
         if (userInfo.equals("1")) {
 
             main(null);
-
         }
 
     }
