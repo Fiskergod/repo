@@ -29,7 +29,7 @@ public class homeWork_12 {
     private static final int H_SIZE = SIZE / 2;
 
     // Расчет нового значения по формуле.
-    public float[] compute(float[] arr) {
+    public synchronized float[] compute(final float[] arr) {
         for (int i = 0; i < arr.length; i++)
             arr[i] = (float) (arr[i] * Math.sin(0.2f + arr[i] / 5) * Math.cos(0.2f + arr[i] / 5) * Math.cos(0.4f + arr[i] / 2));
         return arr;
@@ -64,9 +64,11 @@ public class homeWork_12 {
             float[] array2 = compute(arr2);
             System.arraycopy(array2, 0, arr2, 0, array2.length);
         }).start();
-
-        System.arraycopy(arr1, 0, arr, 0, H_SIZE);
-        System.arraycopy(arr2, 0, arr, H_SIZE, H_SIZE);
+             
+        Synchronized (this) { 
+            System.arraycopy(arr1, 0, arr, 0, H_SIZE);
+            System.arraycopy(arr2, 0, arr, H_SIZE, H_SIZE);
+        }     
         System.out.println("Время работы второго метода: " + (System.currentTimeMillis() - a));
     }
 
